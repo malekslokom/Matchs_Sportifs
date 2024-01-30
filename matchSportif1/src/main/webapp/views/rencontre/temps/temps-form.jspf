@@ -1,0 +1,142 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 ">
+            <div class="panel panel panel-default">
+                <c:if test="${tempsDeJeux != null}">
+                    <div class="panel-heading">Modifier Temps De Jeux</div>
+                </c:if>
+                <c:if test="${tempsDeJeux == null}">
+                    <div class="panel-heading">Ajouter Temps De Jeux</div>
+                </c:if>
+
+                <div class="panel-body">
+                    <c:if test="${tempsDeJeux != null}">
+                        <form action="<c:url value='/api/tempsDeJeuxs/update?id=${tempsDeJeux.idTempsDeJeux}'/>" method="post">
+                    </c:if>
+                    <c:if test="${tempsDeJeux == null}">
+                        <form action="<c:url value='/api/tempsDeJeuxs/insert'/>" method="post">
+                    </c:if>
+					<c:if test="${tempsDeJeux != null}">
+	                    <div class="form-group row">
+	                        <label for="idTempsDeJeux" class="col-sm-2 col-form-label">ID</label>
+	                        <div class="col-sm-10">
+	                            <input type="text" class="form-control" id="idTempsDeJeux" name="idTempsDeJeux" value="<c:out value='${tempsDeJeux.idTempsDeJeux}' />" />
+	                        </div>
+	                    </div>
+                     </c:if>
+
+				
+					
+					<div class="form-group row">
+				    <label for="equipe1" class="col-sm-2 col-form-label">Équipe Domicile</label>
+				    <div class="col-sm-10">
+				        <select class="form-control" id="equipe1" name="equipe1">
+				            <option value="">Sélectionnez une équipe</option> 
+				            <c:forEach items="${listEquipe}" var="equipe" varStatus="loop">
+				                <c:choose>
+				                    <c:when test="${loop.index == 0}">
+				                        <option value="${equipe.idEquipe}" selected>${equipe.nom}</option>
+				                    </c:when>
+				                    <c:otherwise>
+				                        <option value="${equipe.idEquipe}">${equipe.nom}</option>
+				                    </c:otherwise>
+				                </c:choose>
+				            </c:forEach>
+				        </select>
+				    </div>
+				</div>
+			
+					
+					
+		
+					
+					<div class="form-group row">
+				    <label for="equipe2" class="col-sm-2 col-form-label">Équipe Extérieur</label>
+				    <div class="col-sm-10">
+				        <select class="form-control" id="equipe2" name="equipe2">
+				            <option value="">Sélectionnez une équipe</option> 
+				            <c:forEach items="${listEquipe}" var="equipe" varStatus="loop">
+				                <c:choose>
+				                    <c:when test="${loop.index == 1}">
+				                        <option value="${equipe.idEquipe}" selected>${equipe.nom}</option>
+				                    </c:when>
+				                    <c:otherwise>
+				                        <option value="${equipe.idEquipe}">${equipe.nom}</option>
+				                    </c:otherwise>
+				                </c:choose>
+				            </c:forEach>
+				        </select>
+				    </div>
+				</div>
+                    <div class="form-group row">
+                        <label for="dateDebut" class="col-sm-2 col-form-label">Date Début</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="dateDebut" name="dateDebut" placeholder="YYYY-MM-AA" value="<c:out value='${tempsDeJeux.dateDebut}' />" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="heureDebut" class="col-sm-2 col-form-label">Heure Début</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="heureDebut" name="heureDebut" placeholder="HH:mm" value="<c:out value='${tempsDeJeux.heureDebut}' />" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="dateFin" class="col-sm-2 col-form-label">Date Fin</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="dateFin" name="dateFin" placeholder="YYYY-MM-AA" value="<c:out value='${tempsDeJeux.dateFin}' />" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="heureFin" class="col-sm-2 col-form-label">Heure Fin</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="heureFin" name="heureFin" placeholder="HH:mm" value="<c:out value='${tempsDeJeux.heureFin}' />" />
+                        </div>
+                    </div>
+
+                     <div class="form-group row">
+                        <label for="lieuAccueil" class="col-sm-2 col-form-label">Lieu Accueil</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="lieuAccueil" name="lieuAccueil">
+                                <option value="">Sélectionnez un lieu d'accueil</option>
+                                <c:forEach items="${listLieuAcceuil}" var="lieu">
+                                    <c:choose>
+                                        <c:when test="${tempsDeJeux != null && tempsDeJeux.lieuAcceuil != null && tempsDeJeux.lieuAcceuil.idlieuAcceuil == lieu.idlieuAcceuil}">
+                                            <option value="${lieu.idlieuAcceuil}" selected>${lieu.nom}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${lieu.idlieuAcceuil}">${lieu.nom}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+			
+
+
+
+
+                    <div class="form-group row">
+                        <label for="urlBilletrie" class="col-sm-2 col-form-label">URL Billetrie</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="urlBilletrie" name="urlBilletrie" placeholder="URL Billetrie" value="<c:out value='${tempsDeJeux.urlBilletrie}' />" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-10 col-sm-offset-2 text-right">
+                            <button type="submit" class="btn btn-primary btn-md mr-2">Enregistrer</button>
+                            <button type="reset" class="btn btn-secondary btn-md">Annuler</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,51 @@
+
+<div class="container">
+ <c:if  test="${sessionScope.user != null && 'ADMIN'.equals(sessionScope.role)}">
+
+    <div class="text-right">
+<a type="button" class="btn btn-primary btn-md" href="/matchSportif/api/rencontres/${rencontre.idRencontre}/tempsDeJeux/new">Ajouter Temps De Jeux</a>
+    </div>
+    </c:if>
+    <br>
+    <div class="panel panel panel-default">
+        <div class="panel-heading">
+            <h3>Liste des Temps De Jeuxs</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="5%">ID</th>
+                        <th width="10%">Heure Début</th>
+                        <th width="10%">Heure Fin</th>
+                        <th width="15%">Type</th>                        
+                        <th width="20%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="tempsDeJeux" items="${listTempsDeJeux}">
+                        <tr>
+                          <td><c:out value="${tempsDeJeux.idTempsDeJeux}" /></td> 
+                            
+                
+
+                            <td><c:out value="${tempsDeJeux.heureDebut}" /></td>
+                            <td><c:out value="${tempsDeJeux.heureFin}" /></td>
+                            <td><c:out value="${tempsDeJeux.type}" /></td>
+                            
+                            <td>
+                             <c:if  test="${sessionScope.user != null && 'ADMIN'.equals(sessionScope.role)}">
+                            
+                                <div style="white-space: nowrap;">
+                                    <a type="button" class="btn btn-success" href="<c:url value='/api/rencontres/${idRencontre}/tempsDeJeuxs/edit'/>?id=${tempsDeJeux.idTempsDeJeux}">Modifier</a>
+                                    <a type="button" class="btn btn-warning" href="<c:url value='/api/rencontres/${idRencontre}/tempsDeJeuxs/delete'/>?id=${tempsDeJeux.idTempsDeJeux}">Supprimer</a>
+                                </div>
+                                </c:if>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

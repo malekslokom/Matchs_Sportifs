@@ -1,0 +1,113 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<html>
+
+<head>
+<title>Matchs Sportifs</title>
+<!-- Add this line to include jQuery -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Add these lines to include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Add this line to include Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+$(function () {
+    $('#picker').datetimepicker({
+     format: 'LT'
+    });
+});
+</script>
+
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+ rel="stylesheet">
+
+<style>
+        .navbar-default {
+    background-color: #990000;
+    border-color: #AA0000;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: #AA0000;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #AA0000;
+}
+
+.navbar-default .navbar-text {
+    color: #FFF;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #AA0000;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #AA0000;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.footer {
+        height: 25px; 
+        background-color: #990000;
+        text-align: center;
+       /*  padding: 10px; */
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    
+   .panel-default >.panel-heading
+{
+    background: #000000;
+    color: #ffffff;
+}
+
+.btn-primary {
+    color:  #990000;
+    background-color:  #ffffff;
+    border-color:  #990000; /*set the color you want here*/
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color:  #990000;
+    border-color:  #ffffff; /*set the color you want here*/
+}
+
+.btn-secondary {
+    color:  #000000;
+    background-color:  #ffffff;
+    border-color:  #000000; /*set the color you want here*/
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    color: #ffffff;
+    background-color:  #000000;
+    border-color:  #ffffff; /*set the color you want here*/
+}
+    </style>
+</head>
+<body>
